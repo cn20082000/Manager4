@@ -1,0 +1,171 @@
+﻿<local:EditStaffView x:Class="Manager4.ui.manager.staffManager.editStaff.EditStaffDialog"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:local="clr-namespace:Manager4.ui.manager.staffManager.editStaff"
+                     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                     xmlns:fa5="http://schemas.fontawesome.com/icons/"
+                     mc:Ignorable="d"
+                     Title="{StaticResource edit_staff}" 
+                     Height="440" Width="560" 
+                     ResizeMode="NoResize" 
+                     WindowStartupLocation="CenterOwner"
+                     ShowInTaskbar="False"
+                     Icon="/Manager4;component/src/ico/ic_edit.ico" 
+                     TextElement.FontSize="{StaticResource FontSizeMedium}"
+                     TextElement.Foreground="{StaticResource colorPrimaryText}">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Row="0"
+                  Header="{StaticResource basic_info}"
+                  Padding="4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="4"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="{StaticResource name}"
+                           VerticalAlignment="Center"/>
+                <TextBox x:Name="tbName" 
+                         Grid.Row="0"
+                         Grid.Column="2"
+                         PreviewKeyDown="tbName_PreviewKeyDown"/>
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="{StaticResource birthday}"
+                           VerticalAlignment="Center"/>
+                <DatePicker x:Name="tbBirthday" 
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            PreviewKeyDown="tbBirthday_PreviewKeyDown"/>
+                <TextBlock Grid.Row="4"
+                           Grid.Column="0"
+                           Text="{StaticResource address}"
+                           VerticalAlignment="Center"/>
+                <TextBox x:Name="tbAddress" 
+                         Grid.Row="4"
+                         Grid.Column="2"
+                         PreviewKeyDown="tbAddress_PreviewKeyDown"/>
+                <TextBlock Grid.Row="6"
+                           Grid.Column="0"
+                           Text="{StaticResource phone_number}"
+                           VerticalAlignment="Center"/>
+                <TextBox x:Name="tbPhoneNumber" 
+                         Grid.Row="6"
+                         Grid.Column="2"
+                         PreviewKeyDown="tbPhoneNumber_PreviewKeyDown"/>
+                <TextBlock Grid.Row="8"
+                           Grid.Column="0"
+                           Text="{StaticResource signature}"
+                           VerticalAlignment="Center"/>
+                <TextBox x:Name="tbSignature" 
+                         Grid.Row="8"
+                         Grid.Column="2"
+                         PreviewKeyDown="tbSignature_PreviewKeyDown"/>
+                <TextBlock Grid.Row="10"
+                           Grid.Column="0"
+                           Text="{StaticResource role}"
+                           VerticalAlignment="Center"/>
+                <ComboBox x:Name="tbRole" 
+                          Grid.Row="10"
+                          Grid.Column="2"
+                          SelectedIndex="2">
+                    <ComboBoxItem Content="{StaticResource admin}"
+                                  IsEnabled="false"/>
+                    <ComboBoxItem Content="{StaticResource manager}"/>
+                    <ComboBoxItem Content="{StaticResource staff}"/>
+                </ComboBox>
+                <Grid Grid.Row="12"
+                      Grid.ColumnSpan="3">
+                    <Button x:Name="btnUpdateBasicInfo" 
+                            Grid.Column="2"
+                            Content="{StaticResource update}"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom" 
+                            Padding="8,2,8,2"
+                            Click="btnUpdateBasicInfo_Click"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="2"
+                  Header="{StaticResource account_info}"
+                  Padding="4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="4"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="{StaticResource username}"
+                           VerticalAlignment="Center"/>
+                <TextBox x:Name="tbUsername" 
+                         Grid.Row="0"
+                         Grid.Column="2"
+                         PreviewKeyDown="tbUsername_PreviewKeyDown"/>
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="{StaticResource password}"
+                           VerticalAlignment="Center"/>
+                <PasswordBox x:Name="tbPassword" 
+                             Grid.Row="2"
+                             Grid.Column="2"
+                             PreviewKeyDown="tbPassword_PreviewKeyDown"/>
+                <TextBlock Grid.Row="4"
+                           Grid.Column="0"
+                           Text="{StaticResource confirm_password}"
+                           VerticalAlignment="Center"/>
+                <PasswordBox x:Name="tbConfirmPassword" 
+                             Grid.Row="4"
+                             Grid.Column="2"
+                             PreviewKeyDown="tbConfirmPassword_PreviewKeyDown"/>
+                <Grid Grid.Row="6"
+                      Grid.ColumnSpan="3">
+                    <Button x:Name="btnUpdateAccountInfo" 
+                            Grid.Column="2"
+                            Content="{StaticResource update}"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom" 
+                            Padding="8,2,8,2"
+                            Click="btnUpdateAccountInfo_Click"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</local:EditStaffView>

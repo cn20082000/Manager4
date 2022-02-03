@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="colorPrimaryText"
+                     Color="#212121"/>
+    <SolidColorBrush x:Key="colorSecondaryText"
+                     Color="#757575"/>
+    <SolidColorBrush x:Key="colorDivider"
+                     Color="#BDBDBD"/>
+    <SolidColorBrush x:Key="colorError"
+                     Color="#FF0000"/>
+</ResourceDictionary>

@@ -1,0 +1,45 @@
+﻿<local:InitSettingView x:Class="Manager4.ui.setting.initSetting.InitSettingDialog"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:local="clr-namespace:Manager4.ui.setting.initSetting"
+                       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                       xmlns:fa5="http://schemas.fontawesome.com/icons/"
+                       mc:Ignorable="d"
+                       Title="{StaticResource init_setting}" 
+                       Height="200" Width="360" 
+                       ResizeMode="NoResize" 
+                       WindowStartupLocation="CenterOwner"
+                       Icon="/Manager4;component/src/ico/ic_setting.ico" 
+                       TextElement.FontSize="{StaticResource FontSizeMedium}"
+                       TextElement.Foreground="{StaticResource colorPrimaryText}">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{StaticResource connection_string}"/>
+        <TextBox x:Name="tbConnection"
+                 Grid.Row="2"/>
+        <Button x:Name="btnTest"
+                Grid.Row="4"
+                Content="{StaticResource test_connection}"
+                Padding="8,2,8,2"
+                HorizontalAlignment="Left"
+                Click="btnTest_Click"/>
+        <Button x:Name="btnInit"
+                Grid.Row="6"
+                Content="{StaticResource init}"
+                Padding="8,2,8,2"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Click="btnInit_Click"/>
+    </Grid>
+</local:InitSettingView>

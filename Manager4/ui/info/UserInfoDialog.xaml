@@ -1,0 +1,108 @@
+﻿<local:UserInfoView x:Class="Manager4.ui.info.UserInfoDialog"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:local="clr-namespace:Manager4.ui.info"
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                    xmlns:fa5="http://schemas.fontawesome.com/icons/"
+                    mc:Ignorable="d"
+                    Title="{StaticResource user_info}" 
+                    Height="260" Width="360" 
+                    ResizeMode="NoResize" 
+                    WindowStartupLocation="CenterOwner"
+                    ShowInTaskbar="False"
+                    Icon="/Manager4;component/src/ico/ic_user_info.ico" 
+                    TextElement.FontSize="{StaticResource FontSizeMedium}"
+                    TextElement.Foreground="{StaticResource colorPrimaryText}">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="4"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   Text="{StaticResource name}"
+                   VerticalAlignment="Center"/>
+        <TextBox x:Name="tbName" 
+                 Grid.Row="0"
+                 Grid.Column="2"
+                 IsReadOnly="True"/>
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   Text="{StaticResource birthday}"
+                   VerticalAlignment="Center"/>
+        <TextBox x:Name="tbBirthday" 
+                 Grid.Row="2"
+                 Grid.Column="2"
+                 IsReadOnly="True"/>
+        <TextBlock Grid.Row="4"
+                   Grid.Column="0"
+                   Text="{StaticResource address}"
+                   VerticalAlignment="Center"/>
+        <TextBox x:Name="tbAddress" 
+                 Grid.Row="4"
+                 Grid.Column="2"
+                 FontSize="{StaticResource FontSizeMedium}"
+                 Foreground="{StaticResource colorPrimaryText}"
+                 IsReadOnly="True"/>
+        <TextBlock Grid.Row="6"
+                   Grid.Column="0"
+                   Text="{StaticResource phone_number}"
+                   VerticalAlignment="Center"/>
+        <TextBox x:Name="tbPhoneNumber" 
+                 Grid.Row="6"
+                 Grid.Column="2"
+                 IsReadOnly="True"/>
+        <TextBlock Grid.Row="8"
+                   Grid.Column="0"
+                   Text="{StaticResource signature}"
+                   VerticalAlignment="Center"/>
+        <TextBox x:Name="tbSignature" 
+                 Grid.Row="8"
+                 Grid.Column="2"
+                 IsReadOnly="True"/>
+        <TextBlock Grid.Row="10"
+                   Grid.Column="0"
+                   Text="{StaticResource role}"
+                   VerticalAlignment="Center"/>
+        <TextBox x:Name="tbRole" 
+                 Grid.Row="10"
+                 Grid.Column="2"
+                 IsReadOnly="True"/>
+        <Grid Grid.Row="12"
+              Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnChangePassword" 
+                    Grid.Column="0"
+                    Content="{StaticResource change_password}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" 
+                    Padding="8,2,8,2"
+                    Click="btnChangePassword_Click"/>
+        </Grid>
+    </Grid>
+</local:UserInfoView>

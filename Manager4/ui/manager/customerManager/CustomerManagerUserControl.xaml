@@ -1,0 +1,167 @@
+﻿<local:CustomerManagerView x:Class="Manager4.ui.manager.customerManager.CustomerManagerUserControl"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                           xmlns:local="clr-namespace:Manager4.ui.manager.customerManager"
+                           xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                           xmlns:fa5="http://schemas.fontawesome.com/icons/"
+                           mc:Ignorable="d" 
+                           d:DesignHeight="450" d:DesignWidth="800"
+                           TextElement.FontSize="{StaticResource FontSizeMedium}"
+                           TextElement.Foreground="{StaticResource colorPrimaryText}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition />
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="4,0,4,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="64"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="cbPageSize"
+                      SelectedIndex="0"
+                      SelectionChanged="cb_SelectionChanged">
+                <ComboBoxItem Content="{StaticResource 20_per_page}"/>
+                <ComboBoxItem Content="{StaticResource 50_per_page}"/>
+                <ComboBoxItem Content="{StaticResource 100_per_page}"/>
+            </ComboBox>
+            <ComboBox x:Name="cbSortBy"
+                      Grid.Column="2"
+                      SelectedIndex="0"
+                      SelectionChanged="cb_SelectionChanged">
+                <ComboBoxItem Content="{StaticResource default}"/>
+                <ComboBoxItem Content="{StaticResource name}"/>
+                <ComboBoxItem Content="{StaticResource birthday}"/>
+                <ComboBoxItem Content="{StaticResource address}"/>
+                <ComboBoxItem Content="{StaticResource phone_number}"/>
+            </ComboBox>
+            <ComboBox x:Name="cbSortType"
+                      Grid.Column="4"
+                      SelectedIndex="1"
+                      SelectionChanged="cb_SelectionChanged">
+                <ComboBoxItem Content="{StaticResource ascending}"/>
+                <ComboBoxItem Content="{StaticResource descending}"/>
+            </ComboBox>
+            <Button x:Name="btnFirst"
+                    Grid.Column="6"
+                    Padding="4,4,4,4"
+                    Click="btnFirst_Click">
+                <fa5:SvgAwesome Icon="Solid_AngleDoubleLeft"
+                                Width="18"
+                                Height="18"/>
+            </Button>
+            <Button x:Name="btnPrev"
+                    Grid.Column="8"
+                    Padding="4,4,4,4"
+                    Click="btnPrev_Click">
+                <fa5:SvgAwesome Icon="Solid_AngleLeft"
+                                Width="18"
+                                Height="18"/>
+            </Button>
+            <TextBox x:Name="tbPage" 
+                     Grid.Column="10"
+                     IsReadOnly="True"
+                     TextAlignment="Center"
+                     VerticalContentAlignment="Center"/>
+            <Button x:Name="btnNext"
+                    Grid.Column="12"
+                    Padding="4,4,4,4"
+                    Click="btnNext_Click">
+                <fa5:SvgAwesome Icon="Solid_AngleRight"
+                                Width="18"
+                                Height="18"/>
+            </Button>
+            <Button x:Name="btnLast"
+                    Grid.Column="14"
+                    Padding="4,4,4,4"
+                    Click="btnLast_Click">
+                <fa5:SvgAwesome Icon="Solid_AngleDoubleRight"
+                                Width="18"
+                                Height="18"/>
+            </Button>
+        </Grid>
+        <DataGrid x:Name="tableCustomer" 
+                  Grid.Row="2"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                  CanUserSortColumns="False"
+                  ScrollViewer.CanContentScroll="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{StaticResource index}"
+                                    Binding="{Binding Index}"
+                                    Width="40"/>
+                <DataGridTextColumn Header="{StaticResource name}"
+                                    Binding="{Binding Name}" 
+                                    Width="200"/>
+                <DataGridTextColumn Header="{StaticResource birthday}"
+                                    Binding="{Binding Birthday}"
+                                    Width="100"/>
+                <DataGridTextColumn Header="{StaticResource phone_number}"
+                                    Binding="{Binding PhoneNumber}"
+                                    Width="100"/>
+                <DataGridTextColumn Header="{StaticResource address}"
+                                    Binding="{Binding Address}"
+                                    Width="200"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnView" 
+                                    Content="{StaticResource more_info}"
+                                    Padding="8,2,8,2"
+                                    Command="{Binding ViewCommand}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnEdit" 
+                                    Content="{StaticResource edit}"
+                                    Padding="8,2,8,2"
+                                    Command="{Binding EditCommand}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDelete" 
+                                    Content="{StaticResource delete}"
+                                    Padding="8,2,8,2"
+                                    Command="{Binding DeleteCommand}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnAdd" 
+                Grid.Row="4"
+                Content="{StaticResource add}"
+                HorizontalAlignment="Right"
+                Padding="8,2,8,2"
+                Margin="0,12,16,16"
+                Click="btnAdd_Click"/>
+    </Grid>
+</local:CustomerManagerView>

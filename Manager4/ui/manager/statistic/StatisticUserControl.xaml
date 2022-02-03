@@ -1,0 +1,80 @@
+﻿<local:StatisticView x:Class="Manager4.ui.manager.statistic.StatisticUserControl"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                     xmlns:local="clr-namespace:Manager4.ui.manager.statistic"
+                     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                     xmlns:fa5="http://schemas.fontawesome.com/icons/"
+                     mc:Ignorable="d" 
+                     d:DesignHeight="450" d:DesignWidth="800"
+                     TextElement.FontSize="{StaticResource FontSizeMedium}"
+                     TextElement.Foreground="{StaticResource colorPrimaryText}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Margin="4,0,4,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="4"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="{StaticResource start_date}"
+                       VerticalAlignment="Center"/>
+            <DatePicker x:Name="tbStartDate" 
+                        Grid.Column="2"/>
+            <TextBlock Grid.Column="4" 
+                       Text="{StaticResource end_date}"
+                       VerticalAlignment="Center"/>
+            <DatePicker x:Name="tbEndDate" 
+                        Grid.Column="6"/>
+            <ComboBox x:Name="cbType"
+                      Grid.Column="8"
+                      SelectedIndex="0">
+                <ComboBoxItem Content="{StaticResource by_year}"/>
+                <ComboBoxItem Content="{StaticResource by_month}"/>
+                <ComboBoxItem Content="{StaticResource by_day}"/>
+            </ComboBox>
+            <Button x:Name="btnStart"
+                    Grid.Column="10"
+                    Content="{StaticResource start_statistic}"
+                    Padding="8,2,8,2"
+                    Click="btnStart_Click"/>
+        </Grid>
+        <DataGrid x:Name="tableStatistic" 
+                  Grid.Row="2"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                  ScrollViewer.CanContentScroll="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{StaticResource index}"
+                                    Binding="{Binding Index}"
+                                    Width="40"/>
+                <DataGridTextColumn Header="{StaticResource time}"
+                                    Binding="{Binding Time}" 
+                                    Width="120"/>
+                <DataGridTextColumn Header="{StaticResource total_payment}"
+                                    Binding="{Binding Payment}"
+                                    Width="200"/>
+                <DataGridTextColumn Header="{StaticResource total_count}"
+                                    Binding="{Binding Count}"
+                                    Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</local:StatisticView>

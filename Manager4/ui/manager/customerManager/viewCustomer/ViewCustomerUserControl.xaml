@@ -1,0 +1,84 @@
+﻿<local:ViewCustomerView x:Class="Manager4.ui.manager.customerManager.viewCustomer.ViewCustomerUserControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                        xmlns:local="clr-namespace:Manager4.ui.manager.customerManager.viewCustomer"
+                        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                        xmlns:fa5="http://schemas.fontawesome.com/icons/"
+                        mc:Ignorable="d" 
+                        d:DesignHeight="450" d:DesignWidth="800"
+                        TextElement.FontSize="{StaticResource FontSizeMedium}"
+                        TextElement.Foreground="{StaticResource colorPrimaryText}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="{StaticResource basic_info}"
+                  Grid.ColumnSpan="3">
+            <Grid Margin="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="24"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="tblName" 
+                           Text="{StaticResource name}"/>
+                <TextBlock x:Name="tblBirthday" 
+                           Grid.Column="2"
+                           Text="{StaticResource birthday}"/>
+                <TextBlock x:Name="tblAddress" 
+                           Grid.Row="2"
+                           Text="{StaticResource address}"/>
+                <TextBlock x:Name="tblPhoneNumber" 
+                           Grid.Row="2"
+                           Grid.Column="2"
+                           Text="{StaticResource phone_number}"/>
+            </Grid>
+        </GroupBox>
+        <DataGrid x:Name="tablePrescription" 
+                  Grid.Row="2"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                  ScrollViewer.CanContentScroll="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{StaticResource index}"
+                                    Binding="{Binding Index}"
+                                    Width="40"/>
+                <DataGridTextColumn Header="{StaticResource key}"
+                                    Binding="{Binding Key}" 
+                                    Width="120"/>
+                <DataGridTextColumn Header="{StaticResource time}"
+                                    Binding="{Binding Time}"
+                                    Width="160"/>
+                <DataGridTextColumn Header="{StaticResource user_do}"
+                                    Binding="{Binding User}"
+                                    Width="200"/>
+                <DataGridTextColumn Header="{StaticResource payment}"
+                                    Binding="{Binding Payment}"
+                                    Width="120"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnView" 
+                                    Content="{StaticResource more_info}"
+                                    Padding="8,2,8,2"
+                                    Command="{Binding ViewCommand}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</local:ViewCustomerView>

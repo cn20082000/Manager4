@@ -1,0 +1,49 @@
+﻿<local:SearchPrescriptionView x:Class="Manager4.ui.search.searchPrescription.SearchPrescriptionDialog"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:local="clr-namespace:Manager4.ui.search.searchPrescription"
+                              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                              xmlns:fa5="http://schemas.fontawesome.com/icons/"
+                              mc:Ignorable="d"
+                              Title="{StaticResource search_prescription}" 
+                              Height="400" Width="700" 
+                              ResizeMode="NoResize" 
+                              WindowStartupLocation="CenterOwner"
+                              ShowInTaskbar="False"
+                              Icon="/Manager4;component/src/ico/ic_search.ico" 
+                              TextElement.FontSize="{StaticResource FontSizeMedium}"
+                              TextElement.Foreground="{StaticResource colorPrimaryText}">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:SearchPrescriptionDialog.CloseCommand}"
+                        Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+    <Grid>
+        <DataGrid x:Name="tablePrecription" 
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                  ScrollViewer.CanContentScroll="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="auto"
+                  PreviewKeyDown="tablePrecription_PreviewKeyDown">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{StaticResource key}"
+                                    Binding="{Binding Key}" 
+                                    Width="112"/>
+                <DataGridTextColumn Header="{StaticResource customer}"
+                                    Binding="{Binding Customer}"
+                                    Width="160"/>
+                <DataGridTextColumn Header="{StaticResource birthday}"
+                                    Binding="{Binding Birthday}"
+                                    Width="80"/>
+                <DataGridTextColumn Header="{StaticResource user_do}"
+                                    Binding="{Binding User}"
+                                    Width="160"/>
+                <DataGridTextColumn Header="{StaticResource time}"
+                                    Binding="{Binding Time}"
+                                    Width="140"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</local:SearchPrescriptionView>
